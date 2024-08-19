@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="login-container">
-  <h3>Please Log In</h3>
+  <h3 class="login-header">Log In</h3>
   {% if form.errors %}
   <p class="error">
     Your username and password didn't match. Please try again.
@@ -24,7 +24,10 @@
       <label for="id_password">{{ form.password.label }}</label>
       {{ form.password }}
     </div>
-    <button type="submit" class="btn btn-primary">Log in</button>
+    <div class="login-btn-container">
+      <button type="submit" class="btn btn-primary">Log in</button>
+    </div>
+
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
 

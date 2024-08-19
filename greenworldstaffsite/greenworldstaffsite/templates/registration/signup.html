@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %} Signup for the Library System
 {%endblock %} {% block content %}
-<div class="container mt-4">
+<div class="signup-container mt-4">
   <h1>Sign Up</h1>
   <form method="post">
     {% csrf_token %} {{ form.as_p }}

@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
-    'accounts'
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +67,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 
 WSGI_APPLICATION = 'greenworldstaffsite.wsgi.application'
@@ -120,8 +119,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
-
-
 
 
 # Default primary key field type
