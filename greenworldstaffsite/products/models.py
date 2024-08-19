@@ -16,7 +16,7 @@ class Product(models.Model):
 
 class User(models.Model):
 
-    fullname = models.CharField(len(255))
-    email = models.CharField(len(fullname)+15)
-    department = models.CharField(255, choices=[('Management', 'Management'), (
+    fullname = models.CharField(max_length=255)
+    email = models.CharField(max_length=55)
+    department = models.CharField(max_length=255, choices=[('Management', 'Management'), (
         'Marketing', 'Marketing'), ('Customer Service', 'Customer Service')])
