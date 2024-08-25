@@ -2,12 +2,15 @@
 {%endblock%} {% block content %}
 <h1>Product List</h1>
 <hr />
-<ul class="list-group">
-  {% for product in product_list %}
-  <li class="list-group-item">
-    <a href="{% url 'product-detail' product.id %}">{{ product.title }}</a>
-  </li>
-  {% endfor %}
-</ul>
+<div id="'product_list">
+  <ul class="list-group">
+    {% for product in product_list %} {% if product_list %}
+    <li class="list-group-item">
+      <a>{{ product.name }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
 
 {% endblock %}
