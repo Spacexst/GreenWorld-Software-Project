@@ -8,3 +8,4 @@ from django.views.generic import ListView
 class ProductList(ListView):
     model = Product
     template_name = "products/product_list.html"
+    context_object_name = 'product_list'
