@@ -1,0 +1,19 @@
+body {
+    background-color: hwb(72 17% 27%);
+}
+
+.header {
+    background-color: hsl(358, 82%, 49%);
+    padding: 10px;
+    text-align: center;
+}
+
+.footer {
+    background-color: hsl(356, 86%, 45%);
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 20vh;
+}
