@@ -21,3 +21,9 @@ class User(models.Model):
     email = models.CharField(max_length=55)
     department = models.CharField(max_length=255, choices=[('Management', 'Management'), (
         'Marketing', 'Marketing'), ('Customer Service', 'Customer Service')])
+    
+class Staff(models.Model):
+
+    fullname = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    department = models.CharField(max_length=255)
