@@ -1,12 +1,17 @@
 body {
-    background-color: hwb(72 17% 27%);
+    background-color: hwb(75 93% 4% / 0.948);
 }
-
+.topnav {
+    background-color:#375BDC;
+    color:#ffffff;
+    padding:10px;
+  }
 .header {
-    background-color: hsl(358, 82%, 49%);
+    background-color: hsl(131, 82%, 49%);
     padding: 10px;
     text-align: center;
 }
+
 
 .footer {
     background-color: hsl(356, 86%, 45%);

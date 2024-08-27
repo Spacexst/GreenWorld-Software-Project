@@ -12,6 +12,7 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name}: {self.description}. Price: ${self.price} '
+        
 
 
 class User(models.Model):
