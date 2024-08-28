@@ -5,8 +5,8 @@ body {
   
 }
 .navbar{
-    background-color:hwb(72 4% 52%);
-    color:hsl(0, 90%, 46%);
+    background-color:hwb(0 4% 52%);
+    color:rgb(222, 13, 13);
    
 
 
@@ -18,11 +18,8 @@ h1{
     font-weight: bold;
     text-align: center;
 }
-.topnav {
-    background-color:#be1212;
-    color:#29bf47;
-    padding:10px;
-  }
+
+  
 .header {
     background-color: hsl(103, 77%, 52%);
     padding: 10px;

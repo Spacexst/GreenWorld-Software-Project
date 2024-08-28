@@ -15,7 +15,7 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <img  src="/static/images/sticker.jpg" alt="North" style="width:7%"; "border: 2px solid black">
+                <img  src="/static/images/sticker.jpg" alt="North" style="width:7%"; >
     
                 
                 <a class="navbar-brand" href="#">Welcome to GreenWorld!</a>
@@ -24,6 +24,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
+                        
+
+                          
                         <li class="nav-item">
                           
           
@@ -31,9 +34,10 @@
                         </li>
                        
                         </li>
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="#">StaffContacts</a>
-                        </li>
+                            <a class="nav-link" href="{% url 'staff_list' %}">StaffContacts</a>
+                          </li>
                         
     
                     </ul>
