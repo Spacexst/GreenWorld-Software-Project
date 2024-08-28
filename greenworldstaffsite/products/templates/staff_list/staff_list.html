@@ -6,10 +6,9 @@
   <ul class="list-group">
     {% for staff in staff_list %} {% if staff_list %}
     <li class="list-group-item">
-      <a>{{ staff.fullname }}</a>
+      <a>{{ staff.fullname }}, {{staff.email}}, {{staff.department}}</a>
     </li>
-    {% endif %}
-    {% endfor %}
+    {% endif %} {% endfor %}
   </ul>
 </div>
 
