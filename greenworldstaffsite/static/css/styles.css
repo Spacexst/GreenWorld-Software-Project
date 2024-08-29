@@ -1,15 +1,8 @@
 body {
     background-color: #108e1ee9;
-    background-color: #f5ecec01;
-    border: #150404;
+    background-color: hsla(61, 77%, 39%, 0.89);
+    border: hsl(140, 92%, 30%);
   
-}
-.navbar{
-    background-color:hwb(0 4% 52%);
-    color:rgb(222, 13, 13);
-   
-
-
 }
 
 h1{
@@ -21,7 +14,7 @@ h1{
 
   
 .header {
-    background-color: hsl(103, 77%, 52%);
+    background-color: rgb(38, 227, 41);
     padding: 10px;
     text-align: center;
     font-weight: bold;
