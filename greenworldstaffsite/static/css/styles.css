@@ -1,26 +1,34 @@
 body {
-    background-color: #108e1ee9;
-    background-color: hsla(61, 77%, 39%, 0.89);
+    
+    background-color: lightgoldenrodyellow;
     border: hsl(140, 92%, 30%);
   
+}
+.nav-container {
+	background-color: #303030;
+	padding: 30px 20px;
+	color: white;
+	font-weight: bold;
 }
 
 h1{
 
     font-size: 30px;
-    font-weight: bold;
+    font-weight: normal;
     text-align: center;
 }
 
   
 .header {
-    background-color: rgb(38, 227, 41);
-    padding: 10px;
+    background-color: olivedrab;
+    padding: 20px;
     text-align: center;
     font-weight: bold;
     text-wrap: flex;
+    text-decoration: gold;
+    
+    
 }
-
 
 
 .img-responsive {
