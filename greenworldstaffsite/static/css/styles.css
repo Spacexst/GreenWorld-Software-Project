@@ -1,6 +1,6 @@
 body {
     
-    background-color: lightgoldenrodyellow;
+    background-color: white;
     border: hsl(140, 92%, 30%);
   
 }
@@ -20,7 +20,7 @@ h1{
 
   
 .header {
-    background-color: olivedrab;
+    background-color: #238e65;
     padding: 20px;
     text-align: center;
     font-weight: bold;
