@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
-from .models import Product, Staff
-=======
 from .models import Product
->>>>>>> a3b17b56d99f8bf8ceeb9d15814e3a3740c9159e
 
 # Class-based view for listing products
 
@@ -14,7 +10,6 @@ class ProductList(ListView):
     template_name = "products/product_list.html"
     context_object_name = 'product_list'
 
-<<<<<<< HEAD
 # Function-based view for managing a specific product
 
 
@@ -27,10 +22,3 @@ def product_management(request, product_id):
 
 # Class-based view for listing staff
 
-
-class StaffList(ListView):
-    model = Staff
-    template_name = "staff_list/staff_list.html"
-    context_object_name = "staff_list"
-=======
->>>>>>> a3b17b56d99f8bf8ceeb9d15814e3a3740c9159e
