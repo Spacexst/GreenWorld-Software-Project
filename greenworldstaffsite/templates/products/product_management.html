@@ -1,0 +1,9 @@
+<!-- product_management.html -->
+{% extends "base.html" %} {% block content %}
+<h1>Manage Product: {{ product.name }}</h1>
+<form method="post">
+  {% csrf_token %}
+  <!-- Form fields for product details go here -->
+  <button type="submit">Save Changes</button>
+</form>
+{% endblock %}

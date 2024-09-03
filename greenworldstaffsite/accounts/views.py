@@ -1,12 +1,35 @@
-from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
-from django.views.generic import CreateView
-from django.urls import reverse_lazy
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
 
+from .models import Staff
 # Create your views here.
+def signup(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+
+        user = User.objects.create_user(username=username, password=password, email=email)
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
+
+        staff = Staff.objects.create(full_name=user.first_name+" "+user.last_name, email = email)
+        staff.save()
+
+        # Automatically log in the user after signup
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('product_list')  # Redirect to some page after signup
+
+    return render(request, 'registration/signup.html')
+
+def staff_list(request):
+    staff_members = Staff.objects.all().order_by('full_name')
+    return render(request, 'staff_list/staff_list.html', {'staff_list': staff_members})
 
 
-class SignUpView(CreateView):
-    form_class = UserCreationForm
-    template_name = "registration/signup.html"
-    success_url = reverse_lazy('login')

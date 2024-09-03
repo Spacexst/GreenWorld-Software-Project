@@ -6,17 +6,26 @@ from django.contrib.auth.models import User
 
 class Product(models.Model):
 
-    name = models.TextField()
+    name = models.CharField(max_length=255)
     description = models.TextField()
-    price = models.TextField()
+    image = models.ImageField(upload_to='products',
+                              default='default_image.jpg')
+    price = models.CharField(max_length=255)
 
     def __str__(self):
         return f'{self.name}: {self.description}. Price: ${self.price} '
 
 
-class User(models.Model):
+class NewProduct(models.Model):
 
-    fullname = models.CharField(max_length=255)
-    email = models.CharField(max_length=55)
-    department = models.CharField(max_length=255, choices=[('Management', 'Management'), (
-        'Marketing', 'Marketing'), ('Customer Service', 'Customer Service')])
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    image = models.ImageField(upload_to='products',
+                              default='default_image.jpg')
+    price = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f'{self.name}: {self.description}. Price: ${self.price} '
+
+
+

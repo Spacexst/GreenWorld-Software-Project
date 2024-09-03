@@ -1,0 +1,152 @@
+{% extends "base.html" %} {% load static %}
+<!-- Load the static tag -->
+
+{% block title %} Greenworld - Product List {% endblock %} {% block content %}
+<h1>Eco-friendly home items</h1>
+<button type="submit">Add item</button>
+
+<div class="container">
+  <!-- First row with three images -->
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        class="img-responsive card-img-top"
+        src="/static/images/jute-bag.png"
+        alt="Eco-friendly bags"
+        style="width: 100%"
+      />
+      <p>
+        Description: Durable and reusable jute bags made from natural fibers.
+      </p>
+      <p>Price: $15.00</p>
+      <button type="submit">Update item</button>
+    </div>
+    <div class="col-md-4">
+      <img
+        class="img-responsive card-img-top"
+        src="/static/images/eco-friendlycutlery.jpg"
+        alt="Eco-friendly cutlery"
+        style="width: 100%"
+      />
+      <p>Description: Biodegradable cutlery set made from bamboo.</p>
+      <p>Price: $10.00</p>
+      <button type="submit">Update item</button>
+    </div>
+    <div class="col-md-4">
+      <img
+        class="img-responsive card-img-top"
+        src="/static/images/eco-friendlysoaps.jpg"
+        alt="Eco-friendly soaps"
+        style="width: 100%"
+      />
+      <p>
+        Description: Organic, chemical-free soaps for a sustainable lifestyle.
+      </p>
+      <p>Price: $8.00</p>
+      <button type="submit">Update item</button>
+    </div>
+  </div>
+
+  <!-- Second row with three more images -->
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        class="img-responsive card-img-top"
+        src="/static/images/ReusableStraw.jpg"
+        alt="Reusable straws"
+        style="width: 100%"
+      />
+      <p>Description: Stainless steel straws, reusable and eco-friendly.</p>
+      <p>Price: $5.00</p>
+      <button type="submit">Update item</button>
+    </div>
+    <div class="col-md-4">
+      <img
+        class="img-responsive card-img-top"
+        src="/static/images/bamboobrush.jpg"
+        alt="Bamboo toothbrush"
+        style="width: 100%"
+      />
+      <p>
+        Description: Eco-friendly bamboo toothbrushes with natural bristles.
+      </p>
+      <p>Price: $3.00</p>
+      <button type="submit">Update item</button>
+    </div>
+    <div class="col-md-4">
+      <img
+        class="img-responsive card-img-top"
+        src="/static/images/notebook.webp"
+        alt="Recycled notebook"
+        style="width: 100%"
+      />
+      <p>Description: Notebooks made from 100% recycled paper.</p>
+      <p>Price: $7.00</p>
+      <button type="submit">Update item</button>
+    </div>
+  </div>
+
+  <!-- Third row with three more images -->
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        class="img-responsive card-img-top"
+        src="/static/images/clothNapkins.jpg"
+        alt="Cloth napkins"
+        style="width: 100%"
+      />
+      <p>Description: Reusable cloth napkins made from organic cotton.</p>
+      <p>Price: $12.00</p>
+      <button type="submit">Update item</button>
+    </div>
+    <div class="col-md-4">
+      <img
+        class="img-responsive card-img-top"
+        src="/static/images/CompostableBowls.webp"
+        alt="Glass water bottle"
+        style="width: 100%"
+      />
+      <p>Description: Eco-friendly,Sustainable and Compostable Bowls</p>
+      <p>Price: $20.00</p>
+      <button type="submit">Update item</button>
+    </div>
+
+    <div class="col-md-4">
+      <img
+        class="img-responsive card-img-top"
+        src="/static/images/CompostablePaperplates.webp"
+        alt="Cotton tote bag"
+        style="width: 100%"
+      />
+      <p>Description: Eco-friendly, Compostable, disposable paper plates.</p>
+      <p>Price: $18.00</p>
+      <button type="button">Update item</button>
+    </div>
+  </div>
+
+  <div id="product_list">
+    {% if product_list %}
+    <ul class="list-group">
+      {% for product in product_list %}
+      <li class="list-group-item">
+        <div class="product-item">
+          <a>{{ product.name }}</a>
+          <img
+            class="img-responsive"
+            src="{% static 'images/' %}{{ product.image_name }}.jpg"
+            alt="{{ product.name }}"
+            style="width: 20%"
+          />
+          <p>Category: {{ product.get_category_display }}</p>
+          <p>Description: {{ product.description }}</p>
+          <p>Price: {{ product.price }}</p>
+          <button type="submit">Update item</button>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %} {% endif %}
+  </div>
+
+  {% endblock %}
+</div>
