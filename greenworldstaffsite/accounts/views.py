@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 from .models import Staff
-# Create your views here.
 def signup(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -17,9 +18,6 @@ def signup(request):
         user.last_name = last_name
         user.save()
 
-        staff = Staff.objects.create(full_name=user.first_name+" "+user.last_name, email = email)
-        staff.save()
-
         # Automatically log in the user after signup
         user = authenticate(username=username, password=password)
         if user is not None:
@@ -28,8 +26,11 @@ def signup(request):
 
     return render(request, 'registration/signup.html')
 
+@login_required
 def staff_list(request):
     staff_members = Staff.objects.all().order_by('full_name')
     return render(request, 'staff_list/staff_list.html', {'staff_list': staff_members})
 
-
+def logout_view(request):
+    logout(request)
+    return redirect('logout_redirect')

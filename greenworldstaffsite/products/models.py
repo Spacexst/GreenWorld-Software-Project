@@ -8,7 +8,7 @@ class Product(models.Model):
 
     name = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.ImageField(upload_to='products',
+    image = models.ImageField(upload_to='products/',
                               default='default_image.jpg')
     price = models.CharField(max_length=255)
 
