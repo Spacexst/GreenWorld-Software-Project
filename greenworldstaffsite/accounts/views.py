@@ -17,9 +17,6 @@ def signup(request):
         user.last_name = last_name
         user.save()
 
-        staff = Staff.objects.create(full_name=user.first_name+" "+user.last_name, email = email)
-        staff.save()
-
         # Automatically log in the user after signup
         user = authenticate(username=username, password=password)
         if user is not None:
