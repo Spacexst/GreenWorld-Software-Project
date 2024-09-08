@@ -1,15 +1,24 @@
-{% extends "base.html" %} {% block title %} Greenworld - Product List
-{%endblock%} {% block content %}
+{% extends "base.html" %} {% block title %} Greenworld - Staff List {%endblock%}
+{% block content %}
+
 <h1>Staff List</h1>
 <hr />
-<div id="'staff_list">
-  <ul class="list-group">
-    {% for staff in staff_list %} {% if staff_list %}
-    <li class="list-group-item">
-      <a>{{ staff.full_name }}, {{staff.email}}, {{staff.department}}</a>
-    </li>
-    {% endif %} {% endfor %}
-  </ul>
-</div>
-
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Department</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for staff in staff_list %}
+    <tr>
+      <td>{{ staff.full_name }}</td>
+      <td>{{ staff.email }}</td>
+      <td>{{ staff.department }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

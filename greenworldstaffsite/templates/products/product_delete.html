@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %} {% if user.is_authenticated and
+perms.products.delete_product %}
+<div>
+  <h1>Delete Product</h1>
+  <p>Are you sure you would like to delete the {{ Product.name }} Product?</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Confirm" />
+  </form>
+</div>
+{% else %}
+<div>
+  <h3 class="create-warning">
+    You are not logged in or do not have access to this page.<br />
+    Please log in to view this page.
+  </h3>
+</div>
+{% endif %} {% endblock %}
