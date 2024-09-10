@@ -1,12 +1,15 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DeleteView, UpdateView
 from .models import Product
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import ProductForm
 
 
 # Class-based view for listing products
 @login_required
-def ProductList(request):
+def productList(request):
     model = Product.objects.all()
     template_name = "products/product_list.html"
     return render(request, template_name, {'products': model})
@@ -28,11 +31,18 @@ class ProductCreate(CreateView):
     success_url = '/'
 
 # View to update an article.
-class ProductUpdate(UpdateView):
-    template_name = 'products/product_update.html'
+class ProductUpdate(UpdateView, LoginRequiredMixin):
+    template_name = "products/product_update.html"
     model = Product
-    fields = ['name', 'description', 'price',]
-    success_url = '/'
+    form_class = ProductForm
+    success_url = reverse_lazy("product_list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['product'] = self.object
+        return context
+    
+            
 
 # View for article deletion confirmation.
 class ProductDelete(DeleteView):
