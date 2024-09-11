@@ -1,12 +1,32 @@
-{% extends 'base.html' %} {% block content %} {% if user.is_authenticated and
-perms.articles.add_product %}
+{% extends "base.html" %} {% block content %} 
+{% if user.is_authenticated and perms.products.change_product %}
+
+
 <div class="create-container">
-  <h1>Create Product</h1>
   <form method="post" enctype="multipart/form-data">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Create Product</button>
+    {% csrf_token %}
+    {% if product.image %}
+        <img id="product-image-preview" src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 200px; max-height: 200px;">
+    {% else %}
+        <img id="product-image-preview" style="max-width: 200px; max-height: 200px;">
+    {% endif %}
+    <input type="file" id="id_image" name="image" accept="image/*" onchange="previewImage(event)">
+    {{ form.as_p }}
+    
   </form>
+  <button type="submit">Save</button>
 </div>
+
+<script>
+function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function() {
+        const image = document.getElementById('product-image-preview');
+        image.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+</script>
 {% else %}
 <div>
   <h3 class="create-warning">

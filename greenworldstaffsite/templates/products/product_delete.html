@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% block content %} {% if user.is_authenticated and
-perms.products.delete_product %}
+{% extends "base.html" %} {% block content %} {% if user.is_authenticated and perms.products.delete_product %}
 <div>
   <h1>Delete Product</h1>
   <p>Are you sure you would like to delete the {{ Product.name }} Product?</p>

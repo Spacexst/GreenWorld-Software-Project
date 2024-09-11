@@ -4,7 +4,7 @@
 {% block title %} Greenworld - Product List {% endblock %} {% block content %}
 <h1>Eco-friendly home items</h1>
 <div class="mt-auto d-flex justify-content-center">
-  <button type="submit" class="btn btn-success">Add item</button>
+  <a href="{% url 'product_create' %}"><button type="button" class="btn btn-success">Add item</button></a>
 </div>
 
 <div class="container">

@@ -12,10 +12,15 @@
     {% endif %}
     <input type="file" id="id_image" name="image" accept="image/*" onchange="previewImage(event)">
     {{ form.as_p }}
-    
+    <button type="submit">Save</button>
   </form>
-  <button type="submit">Save</button>
+  
+  <form method="post" action=""></form>
+    {% csrf_token %}
+    <a href="{% url 'product_delete' product.pk %}" ><button type="submit" style="background-color: red; color: white;">Delete</button></a>
+  </form>
 </div>
+
 
 <script>
 function previewImage(event) {

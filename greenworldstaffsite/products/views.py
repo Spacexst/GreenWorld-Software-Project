@@ -27,8 +27,8 @@ def product_management(request, product_id):
 class ProductCreate(CreateView):
     template_name = 'products/product_create.html'
     model = Product
-    fields = ['name', 'description', 'price',]
-    success_url = '/'
+    form_class = ProductForm
+    success_url = reverse_lazy("product_list")
 
 # View to update an article.
 class ProductUpdate(UpdateView, LoginRequiredMixin):
@@ -45,10 +45,10 @@ class ProductUpdate(UpdateView, LoginRequiredMixin):
             
 
 # View for article deletion confirmation.
-class ProductDelete(DeleteView):
+class ProductDelete(DeleteView, LoginRequiredMixin):
     template_name = 'products/product_delete.html'
     model = Product
-    success_url = '/'
+    success_url = reverse_lazy("product_list")
 
 
 
