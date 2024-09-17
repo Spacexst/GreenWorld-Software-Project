@@ -16,7 +16,7 @@
                 <a class="navbar-brand" href="#">Welcome to GreenWorld!</a>
                 <a class="nav-link" href="{% url 'product_list' %}">View Products</a>
                         
-                <a class="nav-link" href="{% url 'staff_list' %}">StaffContacts</a>
+                <a class="nav-link" href="{% url 'staff_list' %}">Staff Contacts</a>
 
                 <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
                     {% csrf_token %}

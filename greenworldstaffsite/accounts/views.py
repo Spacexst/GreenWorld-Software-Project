@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from .forms import CustomUserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -7,24 +7,21 @@ from django.contrib.auth import logout
 from .models import Staff
 def signup(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        email = request.POST['email']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-
-        user = User.objects.create_user(username=username, password=password, email=email)
-        user.first_name = first_name
-        user.last_name = last_name
-        user.save()
-
-        # Automatically log in the user after signup
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('product_list')  # Redirect to some page after signup
-
-    return render(request, 'registration/signup.html')
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()  # Load the profile instance created by the signal
+            user.first_name = form.cleaned_data.get('first_name')
+            user.last_name = form.cleaned_data.get('last_name')
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=user.username, password=raw_password)
+            if user is not None:
+                login(request, user)
+                return redirect('product_list')  # Redirect to some page after signup
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
 
 @login_required
 def staff_list(request):
