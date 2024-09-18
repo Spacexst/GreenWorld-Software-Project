@@ -30,6 +30,13 @@ class ProductCreate(CreateView):
     form_class = ProductForm
     success_url = reverse_lazy("product_list")
 
+    def form_valid(self, form):
+        product = form.save(commit=False)  # Don't save to the DB yet
+        if 'image' in self.request.FILES:
+            product.image = self.request.FILES['image']  # Save the uploaded image
+        product.save()
+        return super().form_valid(form)
+
 # View to update an article.
 class ProductUpdate(UpdateView, LoginRequiredMixin):
     template_name = "products/product_update.html"
